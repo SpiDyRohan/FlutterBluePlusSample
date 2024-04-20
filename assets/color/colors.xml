@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black60">#666666</color>
+    <color name="turquoise">#39CBCD</color>
+    <color name="turquoise_10">#1A39CBCD</color>
+    <color name="treePoppy">#F7941D</color>
+    <color name="lochinvar">#278485</color>
+    <color name="lochinvar_30">#4D278485</color>
+    <color name="lochinvar_30">#4D278485</color>
+    <color name="gray">#848484</color>
+    <color name="gray_60">#99848484</color>
+    <color name="gray_60">#99848484</color>
+    <color name="blueRibbon">#2339FF</color>
+    <color name="blueRibbon">#2339FF</color>
+    <color name="blueRibbon_80">#CC2339FF</color>
+    <color name="burntSienna">#FFEC5454</color>
+    <color name= "mineShaft">#FF3E3E3E</color>
+    <color name= "osloGray">#FF80868C</color>
+    <color name= "tuna">#3C3C43</color>
+    <color name = "azureRadiance">#FF007AFF</color>
+    <color name ="concrete">#FFF2F2F2</color>
+    <color name="cruise">#FFAEEAEB</color>
+    <color name="mako">#40434D</color>
+    <color name="offGreen">#FFE1F7F7</color>
+    <color name="alto">#FFD9D9D9</color>
+    <color name="nobel">#FFB7B7B7</color>
+    <color name="dustyGray">#999999</color>
+    <color name="gallery">#FFEFEFEF</color>
+    <color name ="athensGray">#FFDFE2E8</color>
+    <color name ="silver">#FFBABABA</color>
+    <color name ="blue">#007AFF</color>
+    <color name ="black12">#EDEDED</color>
+    <color name ="red">#D44242</color>
+    <color name ="light-red">#FFCDCD</color>
+
+</resources>
