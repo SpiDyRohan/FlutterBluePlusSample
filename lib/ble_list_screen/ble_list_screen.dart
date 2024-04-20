@@ -18,44 +18,64 @@ class _BleListScreenState extends State<BleListScreen> {
       appBar: AppBar(
         title: Text('BLE Scanner'),
       ),
-      body: Obx(() => StreamBuilder(
-            stream: controller.scanResult.value,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
+      body: RefreshIndicator(
+        onRefresh: () async {
+          controller.scanResult();
+        },
+        child: StreamBuilder(
+          stream: controller.scanResult.value,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              if (controller.devices.value.isNotEmpty) {
                 return ListView.builder(
                   itemCount: controller.devices.value.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        controller
-                            .connectToDevice(controller.devices.value[index]);
+                        controller.connectToDevice(controller.devices.value[index]);
                       },
                       child: Container(
                         margin: EdgeInsets.all(5),
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(10)),
+                          color: Colors.white10,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black)
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(controller.devices.value[index].localName,
-                                style: TextStyle(color: Colors.white)),
-                            Text(controller.devices.value[index].id.toString(),
-                                style: TextStyle(color: Colors.white)),
+                            Text(
+                              controller.devices.value[index].localName,
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            Text(
+                              controller.devices.value[index].id.toString(),
+                              style: TextStyle(color: Colors.black),
+                            ),
                           ],
                         ),
                       ),
                     );
                   },
                 );
-              } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
               } else {
-                return Text(snapshot.error.toString());
+                return Center(
+                  child: Text("No devices found"),
+                );
               }
-            },
-          )),
+            } else if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return Center(
+                child: Text(snapshot.error.toString()),
+              );
+            }
+          },
+        ),
+      ),
     );
   }
 }

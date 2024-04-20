@@ -19,32 +19,16 @@ class NewBleScreen extends StatelessWidget {
         title:             Text("${controller.newBleModel.bluetoothState}"),
       ),
       body: GetBuilder<NewBleController>(builder: (controller) {
-        return Stack(
-          children: [
-            Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: Lottie.asset('assets/animation/anim_bluetooth.json')),
-            Positioned(
-              bottom: 80,
-              left: 0,
-              right: 0,
-              child:
-              controller.newBleModel.bluetoothState != BluetoothAdapterState.on
-                  ? enableBluetoothView()
-                  : controller.error != null
-                  ? errorView()
-                  : Text(
-                  controller.newBleModel.status?.name ??
-                      'No Status Found!',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontSize: 20, color: Colors.black)),
-            ),
-
-          ],
-        );
+        return controller.newBleModel.bluetoothState != BluetoothAdapterState.on
+            ? enableBluetoothView()
+            : controller.error != null
+            ? errorView()
+            : Text(
+            controller.newBleModel.status?.name ??
+                'No Status Found!',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontSize: 20, color: Colors.black));
       }),
     );
   }
